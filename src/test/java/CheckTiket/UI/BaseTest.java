@@ -7,11 +7,9 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import io.appium.java_client.AppiumBy;
@@ -19,14 +17,21 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 
 public class BaseTest {
+
 	protected AndroidDriver driver;
 	protected WebDriverWait mywait;
 
-	// Element màn Setting
+	// ==========================
+	// 🔹 COMMON ELEMENTS
+	// ==========================
 	public final By completeBtn = By.xpath("//android.widget.ScrollView/android.view.View/android.widget.Button");
 	public final By completeOffline = By.xpath(
 			"//android.view.ViewGroup/android.view.View/android.view.View/android.view.View[1]/android.widget.Button");
 	public final By okComplete = By.xpath("//android.widget.Button");
+
+	// ==========================
+	// ⚙️ SETTING SCREEN
+	// ==========================
 	public final By hamburgerMenu = By.xpath("//android.view.View[@content-desc=\"More options\"]");
 	public final By settingBtn = By.xpath("//android.widget.ScrollView/android.view.View[1]");
 	public final By hometeamID = By.xpath("//android.widget.ScrollView/android.widget.EditText[1]");
@@ -42,15 +47,19 @@ public class BaseTest {
 	public final By okSuccess = By.xpath("//android.widget.Button");
 	public final By okDone = By.xpath("//android.widget.Button");
 
-	// Element màn Import event data
-	public final By ip_importFooter = By.xpath("By.xpath(\"//android.view.View[@content-desc='イベント取込']\");");
+	// ==========================
+	// 📦 IMPORT EVENT SCREEN
+	// ==========================
+	public final By ip_importFooter = By.xpath("//android.view.View[@content-desc='イベント取込']");
 	public final By ip_eventData = By.xpath(
 			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View[1]");
 	public final By ip_clickBtn = By.xpath(
 			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[6]/android.widget.Button");
 	public final By ip_okDialog = By.xpath("//android.widget.Button");
 
-	// Element màn xác thực TOP
+	// ==========================
+	// 🧭 AUTHENTICATION TOP SCREEN
+	// ==========================
 	public final By switch_limitedGate = By
 			.xpath("//android.widget.TextView[@text=\"ゲート制限\"]/following-sibling::android.view.View");
 	public final By switch_authentication = By
@@ -64,58 +73,31 @@ public class BaseTest {
 	public final By switch_screenflip = By
 			.xpath("//android.widget.TextView[@text=\"画面反転（据え置き）\"]/following-sibling::android.view.View");
 
+	// ==========================
+	// 🚀 SETUP
+	// ==========================
 	@BeforeClass
 	public void setUp() throws Exception {
-		UiAutomator2Options options = new UiAutomator2Options().setAutomationName("UiAutomator2")
-				.setPlatformName("Android").setDeviceName("Real Device").setUdid("0020202510018759")
-				.setAppPackage("com.pirago.pia").setAppActivity("com.pirago.pia.presentation.MainActivity")
-				.setAppWaitPackage("com.pirago.pia").setAppWaitActivity("com.pirago.pia.presentation.*")
-				.setNewCommandTimeout(Duration.ofSeconds(3600)).setNoReset(true);
-		URL url = new URL("http://172.16.1.25:4723/wd/hub");
+		UiAutomator2Options options = new UiAutomator2Options()
+				.setAutomationName("UiAutomator2")
+				.setPlatformName("Android")
+				.setDeviceName("Real Device")
+				.setUdid("0020202510018759")
+				.setAppPackage("com.pirago.pia")
+				.setAppActivity("com.pirago.pia.presentation.MainActivity")
+				.setAppWaitPackage("com.pirago.pia")
+				.setAppWaitActivity("com.pirago.pia.presentation.*")
+				.setNewCommandTimeout(Duration.ofSeconds(3600))
+				.setNoReset(true);
 
-		driver = new AndroidDriver(url, options);
-
+		driver = new AndroidDriver(new URL("http://172.16.1.25:4723/wd/hub"), options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 		mywait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
-	public void checkComplete(By completeButton, By confirmButton, By okButton) {
-		try {
-			WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
-			WebElement btn = shortWait.until(ExpectedConditions.elementToBeClickable(completeButton));
-
-			if (btn.isDisplayed() && btn.isEnabled()) {
-				btn.click();
-				System.out.println("👉 Đã click nút hoàn tất lần đầu vào app.");
-
-				// Xử lý dialog đầu tiên (chọn nút confirm)
-				try {
-					WebDriverWait dialogWait = new WebDriverWait(driver, Duration.ofSeconds(5));
-					WebElement confirmBtn = dialogWait.until(ExpectedConditions.elementToBeClickable(confirmButton));
-					confirmBtn.click();
-					System.out.println("✅ Đã click nút confirm trong dialog.");
-				} catch (Exception e) {
-					System.out.println("⚠ Không tìm thấy nút confirm trong dialog.");
-				}
-
-				// Xử lý dialog xác nhận thành công (OK)
-				try {
-					WebDriverWait okWait = new WebDriverWait(driver, Duration.ofSeconds(5));
-					WebElement okBtn = okWait.until(ExpectedConditions.elementToBeClickable(okButton));
-					okBtn.click();
-					System.out.println("🎉 Đã click nút OK để đóng dialog xác nhận thành công.");
-				} catch (Exception e) {
-					System.out.println("⚠ Không tìm thấy nút OK trong dialog xác nhận.");
-				}
-
-			} else {
-				System.out.println("⚡ Nút hoàn tất bị disable → Không cần xử lý.");
-			}
-		} catch (Exception e) {
-			System.out.println("✅ Không tìm thấy nút hoàn tất → Không cần xử lý.");
-		}
-	}
-
+	// ==========================
+	// 🎯 COMMON UTILITIES
+	// ==========================
 	protected void clickElement(By locator) {
 		WebElement element = mywait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		element.click();
@@ -128,84 +110,106 @@ public class BaseTest {
 		pause(200);
 	}
 
-	protected void pause(int milliseconds) {
+	protected void clearElement(By locator) {
+		mywait.until(ExpectedConditions.visibilityOfElementLocated(locator)).clear();
+	}
+
+	protected void pause(int ms) {
+		try { Thread.sleep(ms); } catch (InterruptedException ignored) {}
+	}
+
+	// ==========================
+	// 🧭 SCROLL HELPERS
+	// ==========================
+	protected void scrollDown(int maxSwipes) {
+		String ui = "new UiScrollable(new UiSelector().scrollable(true))"
+				+ ".setAsVerticalList().setMaxSearchSwipes(" + maxSwipes + ").scrollForward()";
+		driver.findElement(AppiumBy.androidUIAutomator(ui));
+	}
+
+	protected void scrollUp(int maxSwipes) {
+		String ui = "new UiScrollable(new UiSelector().scrollable(true))"
+				+ ".setAsVerticalList().setMaxSearchSwipes(" + maxSwipes + ").scrollBackward()";
+		driver.findElement(AppiumBy.androidUIAutomator(ui));
+	}
+
+	// ==========================
+	// ✅ COMPLETE BUTTON HANDLER
+	// ==========================
+	public void checkComplete(By completeButton, By confirmButton, By okButton) {
 		try {
-			Thread.sleep(milliseconds);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+			WebElement btn = shortWait.until(ExpectedConditions.elementToBeClickable(completeButton));
+
+			if (btn.isDisplayed() && btn.isEnabled()) {
+				btn.click();
+				System.out.println("👉 Click nút hoàn tất lần đầu vào app.");
+
+				clickIfVisible(confirmButton, "confirm");
+				clickIfVisible(okButton, "OK");
+			} else {
+				System.out.println("⚡ Nút hoàn tất bị disable → Không cần xử lý.");
+			}
+		} catch (Exception e) {
+			System.out.println("✅ Không tìm thấy nút hoàn tất → Không cần xử lý.");
 		}
 	}
 
-	// Vuốt xuống (thấy phần dưới)
-	protected void scrollDown(int maxSwipes) {
-		String ui = "new UiScrollable(new UiSelector().scrollable(true))" + ".setAsVerticalList()"
-				+ ".setMaxSearchSwipes(" + maxSwipes + ")" + ".scrollForward()";
-		driver.findElement(AppiumBy.androidUIAutomator(ui));
+	private void clickIfVisible(By locator, String name) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+			WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+			element.click();
+			System.out.printf("✅ Đã click nút %s trong dialog.%n", name);
+		} catch (Exception e) {
+			System.out.printf("⚠ Không tìm thấy nút %s trong dialog.%n", name);
+		}
 	}
 
-	// Vuốt lên (thấy phần trên)
-	protected void scrollUp(int maxSwipes) {
-		String ui = "new UiScrollable(new UiSelector().scrollable(true))" + ".setAsVerticalList()"
-				+ ".setMaxSearchSwipes(" + maxSwipes + ")" + ".scrollBackward()";
-		driver.findElement(AppiumBy.androidUIAutomator(ui));
-	}
-
-	// Hàm clear giá trị trong các element
-	protected void clearElement(By locator) {
-		WebElement element = mywait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		element.clear();
-	}
-
-	// Hàm Login thành công
+	// ==========================
+	// 🔑 LOGIN & SETTING
+	// ==========================
 	public void setupSettingAndLogin() {
-//		scrollDown(1);
-//		checkComplete(completeBtn, completeOnline, okComplete);
-//		pause(2000);
 		clickElement(hamburgerMenu);
-		pause(200);
 		clickElement(settingBtn);
-		pause(200);
 
-		// Nhập thông tin cần thiết
 		inputElement(hometeamID, "VC");
 		inputElement(nameDevice, "Ticket");
 		inputElement(doamin, "pia.pirago.work");
 
-		// Cấu hình các lựa chọn mạng, xác thực
 		clickElement(networkOptions);
 		clickElement(onlineOption);
 		clickElement(authenticate);
 		clickElement(normal);
 
-		// Cuộn xuống và xác nhận
 		scrollDown(1);
 		clickElement(oKBtn);
 
-		// Nhập mật khẩu xác thực
 		inputElement(passwordInput, "123456");
 		clickElement(okPassword);
 		pause(2000);
 		clickElement(okDone);
-		pause(2000); // chờ màn TOP hiển thị
+		pause(2000);
 
 		System.out.println("✅ Đã hoàn tất setup và login vào màn TOP xác thực.");
 	}
 
-	// Hàm Import thành công
+	// ==========================
+	// 📦 IMPORT EVENT DATA
+	// ==========================
 	public void importSuccessData() {
 		clickElement(ip_importFooter);
-		pause(200);
 		clickElement(ip_eventData);
-		pause(200);
 		clickElement(ip_clickBtn);
 		pause(8000);
 		clickElement(ip_okDialog);
-		pause(200);
 
 		System.out.println("✅ Đã hoàn tất Import thành công ở màn Import");
 	}
 
-	// Hàm dùng chung để kiểm tra trạng thái của switch bất kì
+	// ==========================
+	// 🔍 SWITCH STATUS CHECK
+	// ==========================
 	public void checkAllSwitchOnce() {
 		Map<By, String> switches = new LinkedHashMap<>();
 		switches.put(switch_limitedGate, "ゲート制限");
@@ -215,31 +219,47 @@ public class BaseTest {
 		switches.put(switch_displayarea, "表示エリア制御");
 		switches.put(switch_screenflip, "画面反転");
 
-		for (Map.Entry<By, String> entry : switches.entrySet()) {
-			String name = entry.getValue();
+		switches.forEach((locator, name) -> {
 			try {
-				WebElement element = driver.findElement(entry.getKey());
-				boolean isEnabled = element.isEnabled();
-				String status = isEnabled ? "ENABLE ✅" : "DISABLE ❌";
+				boolean enabled = driver.findElement(locator).isEnabled();
+				String status = enabled ? "ENABLE ✅" : "DISABLE ❌";
 				System.out.printf("🔘 %-12s → %s%n", name, status);
 			} catch (Exception e) {
 				System.out.printf("⚠️ %-12s → Không tìm thấy trên màn hình!%n", name);
 			}
-		}
+		});
 		System.out.println("====================================");
 	}
 
-	// Hàm check giá trị default của màn Maintainence
+	// ==========================
+	// 🧩 DEFAULT VALUE CHECK
+	// ==========================
 	public void verifyDefaultValue(By locator, String expectedValue, String fieldName) {
 		WebElement element = mywait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		String actualValue = element.getText();
 		Assert.assertEquals(actualValue, expectedValue,
 				"❌ Giá trị mặc định của [" + fieldName + "] không đúng. Thực tế: " + actualValue);
 	}
+	
+	// ==========================
+	// 🔍 FOOTER STATUS CHECK
+	// ==========================
+	
+	public void checkFooter(By locator, String switchName) {
+	    WebElement element = driver.findElement(locator);
 
-//	@AfterClass(alwaysRun = true)
-//	public void tearDown() {
-//		if (driver != null)
-//			driver.quit();
-//	}
+	    String enabledAttr = element.getAttribute("enabled");
+	    String clickableAttr = element.getAttribute("clickable");
+
+	    boolean isActuallyEnabled = 
+	        ("true".equalsIgnoreCase(enabledAttr) && !"false".equalsIgnoreCase(clickableAttr));
+
+	    if (isActuallyEnabled) {
+	        System.out.println("🔘 [" + switchName + "] đang ENABLE ✅");
+	    } else {
+	        System.out.println("🔘 [" + switchName + "] đang DISABLE ❌");
+	    }
+
+	    Assert.assertTrue(true, "Switch [" + switchName + "] trạng thái: " + (isActuallyEnabled ? "ENABLE" : "DISABLE"));
+	}
 }

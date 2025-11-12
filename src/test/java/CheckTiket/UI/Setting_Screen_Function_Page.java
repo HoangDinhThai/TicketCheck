@@ -46,6 +46,7 @@ public class Setting_Screen_Function_Page extends BaseTest {
 
 	// ===== Actions =====
 	public void loginFailWithInvalidHomeTeamID() {
+		scrollDown(1);
 		checkComplete(completeBtn, completeOnline, okComplete);
 		pause(2000);
 		clickElement(hamburgerMenu);
