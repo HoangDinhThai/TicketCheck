@@ -15,17 +15,13 @@ public class Setting_Screen_Validation_Page extends BaseTest {
 		this.mywait = new org.openqa.selenium.support.ui.WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
-	// ==========================
 	// 🔍 ELEMENT HAMBURGER
-	// ==========================
 	public final By Hamburger_Icon = By.xpath("//android.view.View[@content-desc=\"More options\"]");
 	public final By Hamburger_Setting = By.xpath("//android.widget.ScrollView/android.view.View[1]");
 	public final By Hamburger_Maintenance = By.xpath("//android.widget.ScrollView/android.view.View[2]");
 	public final By Hamburger_Close = By.xpath("//android.widget.ScrollView/android.view.View[3]");
 	
-	// ==========================
 	// 🔍 ELEMENT TITLE
-	// ==========================
 	public final By Title_Title = By.xpath("//android.widget.TextView[@text=\"設定\"]");
 	public final By Title_HomeTeamID = By.xpath("//android.widget.TextView[@text=\"ホームチームID\"]");
 	public final By Title_TerminalNumber = By.xpath("//android.widget.TextView[@text=\"端末番号\"]");
@@ -38,9 +34,7 @@ public class Setting_Screen_Validation_Page extends BaseTest {
 	public final By Title_TestPrint = By.xpath("//android.widget.TextView[@text=\"テストプリント\"]");
 	public final By Title_ServerAuthentication = By.xpath("//android.widget.TextView[@text=\"管理サーバ認証\"]");
 	
-	// ==========================
 	// 🔍 ELEMENT PLACEHOLDER
-	// ==========================
 	public final By Placeholder_HomeTeamID = By.xpath("//android.widget.TextView[@text=\"ホームチームIDを入力\"]");
 	public final By Placeholder_TerminalNumber = By.xpath("//android.widget.TextView[@text=\"端末番号を入力\"]");
 	public final By Placeholder_Domain = By.xpath("//android.widget.TextView[@text=\"接続先を入力\"]");

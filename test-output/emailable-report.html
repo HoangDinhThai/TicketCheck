@@ -9,11 +9,68 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">41,713</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">107,838</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">CheckTiket.UI.Setting_Screen_Validation_Test</td><td><a href="#m0">checkPlaceholderDisplay</a></td><td rowspan="1">1762920863603</td><td rowspan="1">7586</td></tr><tr class="passedeven"><td><a href="#m1">checkTitleDisplay</a></td><td rowspan="1">1762920846445</td><td rowspan="1">17096</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">CheckTiket.UI.Setting_Screen_Function_Test</td><td><a href="#m0">loginFailWithInvalidPassword</a></td><td rowspan="1">1763366229596</td><td rowspan="1">7322</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="7">CheckTiket.UI.Setting_Screen_Function_Test</td><td><a href="#m1">loginFailWithEmptyPassword</a></td><td rowspan="1">1763366236927</td><td rowspan="1">2857</td></tr><tr class="passedeven"><td><a href="#m2">loginFailWithInvalidDomain</a></td><td rowspan="1">1763366218331</td><td rowspan="1">11262</td></tr><tr class="passedeven"><td><a href="#m3">loginInvalidHomeTeamID</a></td><td rowspan="1">1763366197324</td><td rowspan="1">20936</td></tr><tr class="passedeven"><td><a href="#m4">loginSuccessChangeBoth</a></td><td rowspan="1">1763366281210</td><td rowspan="1">12744</td></tr><tr class="passedeven"><td><a href="#m5">loginSuccessChangeDomain</a></td><td rowspan="1">1763366268081</td><td rowspan="1">13125</td></tr><tr class="passedeven"><td><a href="#m6">loginSuccessChangeHomeTeamID</a></td><td rowspan="1">1763366252949</td><td rowspan="1">15129</td></tr><tr class="passedeven"><td><a href="#m7">loginSuccesss</a></td><td rowspan="1">1763366239790</td><td rowspan="1">13156</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">CheckTiket.UI.Setting_Screen_Validation_Test#checkPlaceholderDisplay</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">CheckTiket.UI.Setting_Screen_Validation_Test#checkTitleDisplay</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">CheckTiket.UI.Setting_Screen_Function_Test#loginFailWithInvalidPassword</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.27.0&apos;, revision: &apos;d6e718d&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [5c79d7c1-ee12-41b9-93e1-2197509b7f1d, findElement {using=xpath, value=//android.widget.TextView[@text=&quot;入力されたパスワードが違います。
+パスワードを確認してください。&quot;]}]
+Capabilities {appium:appActivity: com.pirago.pia.presentation..., appium:appPackage: com.pirago.pia, appium:appWaitActivity: com.pirago.pia.presentation.*, appium:appWaitPackage: com.pirago.pia, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.pirago.pia.presentation..., appPackage: com.pirago.pia, appWaitActivity: com.pirago.pia.presentation.*, appWaitPackage: com.pirago.pia, automationName: UiAutomator2, deviceName: Real Device, newCommandTimeout: 3600, noReset: true, platformName: ANDROID, udid: 0020202510018759}, appium:deviceApiLevel: 31, appium:deviceManufacturer: Android, appium:deviceModel: Hand-held_Terminal, appium:deviceName: 0020202510018759, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1440, appium:deviceUDID: 0020202510018759, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 3600, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 12, appium:statBarHeight: 48, appium:takesScreenshot: true, appium:udid: 0020202510018759, appium:viewportRect: {height: 1392, left: 0, top: 48, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 5c79d7c1-ee12-41b9-93e1-2197509b7f1d
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:243)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at CheckTiket.UI.BaseTest.MessageDiadlogs(BaseTest.java:240)
+	at CheckTiket.UI.Setting_Screen_Function_Page.loginFailWithInvalidPassword(Setting_Screen_Function_Page.java:129)
+	at CheckTiket.UI.Setting_Screen_Function_Test.loginFailWithInvalidPassword(Setting_Screen_Function_Test.java:27)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">CheckTiket.UI.Setting_Screen_Function_Test#loginFailWithEmptyPassword</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">CheckTiket.UI.Setting_Screen_Function_Test#loginFailWithInvalidDomain</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">CheckTiket.UI.Setting_Screen_Function_Test#loginInvalidHomeTeamID</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">CheckTiket.UI.Setting_Screen_Function_Test#loginSuccessChangeBoth</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">CheckTiket.UI.Setting_Screen_Function_Test#loginSuccessChangeDomain</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">CheckTiket.UI.Setting_Screen_Function_Test#loginSuccessChangeHomeTeamID</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">CheckTiket.UI.Setting_Screen_Function_Test#loginSuccesss</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -1,29 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="7" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-12T11:13:49 GMT+07:00" name="Default suite" finished-at="2025-11-12T11:14:31 GMT+07:00" duration-ms="41713">
+  <suite started-at="2025-11-17T14:56:26 GMT+07:00" name="Default suite" finished-at="2025-11-17T14:58:13 GMT+07:00" duration-ms="107838">
     <groups>
     </groups>
-    <test started-at="2025-11-12T11:13:49 GMT+07:00" name="Default test" finished-at="2025-11-12T11:14:31 GMT+07:00" duration-ms="41713">
-      <class name="CheckTiket.UI.Setting_Screen_Validation_Test">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:CheckTiket.UI.Setting_Screen_Validation_Test@55cf0d14]" started-at="2025-11-12T11:13:49 GMT+07:00" name="setUp" finished-at="2025-11-12T11:14:06 GMT+07:00" duration-ms="16906" status="PASS">
+    <test started-at="2025-11-17T14:56:26 GMT+07:00" name="Default test" finished-at="2025-11-17T14:58:13 GMT+07:00" duration-ms="107838">
+      <class name="CheckTiket.UI.Setting_Screen_Function_Test">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:56:26 GMT+07:00" name="setUp" finished-at="2025-11-17T14:56:37 GMT+07:00" duration-ms="11162" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="setupPage()[pri:0, instance:CheckTiket.UI.Setting_Screen_Validation_Test@55cf0d14]" started-at="2025-11-12T11:14:06 GMT+07:00" name="setupPage" finished-at="2025-11-12T11:14:06 GMT+07:00" duration-ms="11" status="PASS">
+        <test-method is-config="true" signature="setupPage()[pri:0, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:56:37 GMT+07:00" name="setupPage" finished-at="2025-11-17T14:56:37 GMT+07:00" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupPage -->
-        <test-method signature="checkTitleDisplay()[pri:1, instance:CheckTiket.UI.Setting_Screen_Validation_Test@55cf0d14]" started-at="2025-11-12T11:14:06 GMT+07:00" name="checkTitleDisplay" description="Kiểm tra hiển thị tiêu đề của màn hình Setting" finished-at="2025-11-12T11:14:23 GMT+07:00" duration-ms="17096" status="PASS">
+        <test-method signature="loginInvalidHomeTeamID()[pri:1, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:56:37 GMT+07:00" name="loginInvalidHomeTeamID" description="Đăng nhập thất bại với HomeTeamID không hợp lệ" finished-at="2025-11-17T14:56:58 GMT+07:00" duration-ms="20936" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkTitleDisplay -->
-        <test-method signature="checkPlaceholderDisplay()[pri:2, instance:CheckTiket.UI.Setting_Screen_Validation_Test@55cf0d14]" started-at="2025-11-12T11:14:23 GMT+07:00" name="checkPlaceholderDisplay" description="Kiểm tra hiển thị placeholder của màn hình Setting" finished-at="2025-11-12T11:14:31 GMT+07:00" duration-ms="7586" status="PASS">
+        </test-method> <!-- loginInvalidHomeTeamID -->
+        <test-method signature="loginFailWithInvalidDomain()[pri:2, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:56:58 GMT+07:00" name="loginFailWithInvalidDomain" description="Đăng nhập thất bại với Domain không hợp lệ" finished-at="2025-11-17T14:57:09 GMT+07:00" duration-ms="11262" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkPlaceholderDisplay -->
-      </class> <!-- CheckTiket.UI.Setting_Screen_Validation_Test -->
+        </test-method> <!-- loginFailWithInvalidDomain -->
+        <test-method signature="loginFailWithInvalidPassword()[pri:3, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:57:09 GMT+07:00" name="loginFailWithInvalidPassword" description="Đăng nhập thất bại với Password không hợp lệ " finished-at="2025-11-17T14:57:16 GMT+07:00" duration-ms="7322" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.27.0', revision: 'd6e718d'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [5c79d7c1-ee12-41b9-93e1-2197509b7f1d, findElement {using=xpath, value=//android.widget.TextView[@text="入力されたパスワードが違います。
+パスワードを確認してください。"]}]
+Capabilities {appium:appActivity: com.pirago.pia.presentation..., appium:appPackage: com.pirago.pia, appium:appWaitActivity: com.pirago.pia.presentation.*, appium:appWaitPackage: com.pirago.pia, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.pirago.pia.presentation..., appPackage: com.pirago.pia, appWaitActivity: com.pirago.pia.presentation.*, appWaitPackage: com.pirago.pia, automationName: UiAutomator2, deviceName: Real Device, newCommandTimeout: 3600, noReset: true, platformName: ANDROID, udid: 0020202510018759}, appium:deviceApiLevel: 31, appium:deviceManufacturer: Android, appium:deviceModel: Hand-held_Terminal, appium:deviceName: 0020202510018759, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1440, appium:deviceUDID: 0020202510018759, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 3600, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 12, appium:statBarHeight: 48, appium:takesScreenshot: true, appium:udid: 0020202510018759, appium:viewportRect: {height: 1392, left: 0, top: 48, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 5c79d7c1-ee12-41b9-93e1-2197509b7f1d]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.27.0', revision: 'd6e718d'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [5c79d7c1-ee12-41b9-93e1-2197509b7f1d, findElement {using=xpath, value=//android.widget.TextView[@text="入力されたパスワードが違います。
+パスワードを確認してください。"]}]
+Capabilities {appium:appActivity: com.pirago.pia.presentation..., appium:appPackage: com.pirago.pia, appium:appWaitActivity: com.pirago.pia.presentation.*, appium:appWaitPackage: com.pirago.pia, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.pirago.pia.presentation..., appPackage: com.pirago.pia, appWaitActivity: com.pirago.pia.presentation.*, appWaitPackage: com.pirago.pia, automationName: UiAutomator2, deviceName: Real Device, newCommandTimeout: 3600, noReset: true, platformName: ANDROID, udid: 0020202510018759}, appium:deviceApiLevel: 31, appium:deviceManufacturer: Android, appium:deviceModel: Hand-held_Terminal, appium:deviceName: 0020202510018759, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1440, appium:deviceUDID: 0020202510018759, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 3600, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 12, appium:statBarHeight: 48, appium:takesScreenshot: true, appium:udid: 0020202510018759, appium:viewportRect: {height: 1392, left: 0, top: 48, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 5c79d7c1-ee12-41b9-93e1-2197509b7f1d
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:243)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at CheckTiket.UI.BaseTest.MessageDiadlogs(BaseTest.java:240)
+at CheckTiket.UI.Setting_Screen_Function_Page.loginFailWithInvalidPassword(Setting_Screen_Function_Page.java:129)
+at CheckTiket.UI.Setting_Screen_Function_Test.loginFailWithInvalidPassword(Setting_Screen_Function_Test.java:27)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFailWithInvalidPassword -->
+        <test-method signature="loginFailWithEmptyPassword()[pri:4, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:57:16 GMT+07:00" name="loginFailWithEmptyPassword" description="Đăng nhập thất bại khi để trống Password" finished-at="2025-11-17T14:57:19 GMT+07:00" duration-ms="2857" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFailWithEmptyPassword -->
+        <test-method signature="loginSuccesss()[pri:5, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:57:19 GMT+07:00" name="loginSuccesss" description="Đăng nhập thành công" finished-at="2025-11-17T14:57:32 GMT+07:00" duration-ms="13156" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSuccesss -->
+        <test-method signature="loginSuccessChangeHomeTeamID()[pri:6, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:57:32 GMT+07:00" name="loginSuccessChangeHomeTeamID" description="Đăng nhập thành công thay đổi HomeTeamID" finished-at="2025-11-17T14:57:48 GMT+07:00" duration-ms="15129" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSuccessChangeHomeTeamID -->
+        <test-method signature="loginSuccessChangeDomain()[pri:7, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:57:48 GMT+07:00" name="loginSuccessChangeDomain" description="Đăng nhập thành công thay đổi Domain" finished-at="2025-11-17T14:58:01 GMT+07:00" duration-ms="13125" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSuccessChangeDomain -->
+        <test-method signature="loginSuccessChangeBoth()[pri:8, instance:CheckTiket.UI.Setting_Screen_Function_Test@6304101a]" started-at="2025-11-17T14:58:01 GMT+07:00" name="loginSuccessChangeBoth" description="Đăng nhập thành công thay đổi cả 2" finished-at="2025-11-17T14:58:13 GMT+07:00" duration-ms="12744" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSuccessChangeBoth -->
+      </class> <!-- CheckTiket.UI.Setting_Screen_Function_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

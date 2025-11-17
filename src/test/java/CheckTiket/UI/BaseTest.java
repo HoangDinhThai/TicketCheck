@@ -21,17 +21,13 @@ public class BaseTest {
 	protected AndroidDriver driver;
 	protected WebDriverWait mywait;
 
-	// ==========================
 	// 🔹 COMMON ELEMENTS
-	// ==========================
 	public final By completeBtn = By.xpath("//android.widget.ScrollView/android.view.View/android.widget.Button");
 	public final By completeOffline = By.xpath(
 			"//android.view.ViewGroup/android.view.View/android.view.View/android.view.View[1]/android.widget.Button");
 	public final By okComplete = By.xpath("//android.widget.Button");
 
-	// ==========================
 	// ⚙️ SETTING SCREEN
-	// ==========================
 	public final By hamburgerMenu = By.xpath("//android.view.View[@content-desc=\"More options\"]");
 	public final By settingBtn = By.xpath("//android.widget.ScrollView/android.view.View[1]");
 	public final By hometeamID = By.xpath("//android.widget.ScrollView/android.widget.EditText[1]");
@@ -47,9 +43,7 @@ public class BaseTest {
 	public final By okSuccess = By.xpath("//android.widget.Button");
 	public final By okDone = By.xpath("//android.widget.Button");
 
-	// ==========================
 	// 📦 IMPORT EVENT SCREEN
-	// ==========================
 	public final By ip_importFooter = By.xpath("//android.view.View[@content-desc='イベント取込']");
 	public final By ip_eventData = By.xpath(
 			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View[1]");
@@ -57,9 +51,7 @@ public class BaseTest {
 			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[6]/android.widget.Button");
 	public final By ip_okDialog = By.xpath("//android.widget.Button");
 
-	// ==========================
 	// 🧭 AUTHENTICATION TOP SCREEN
-	// ==========================
 	public final By switch_limitedGate = By
 			.xpath("//android.widget.TextView[@text=\"ゲート制限\"]/following-sibling::android.view.View");
 	public final By switch_authentication = By
@@ -73,31 +65,21 @@ public class BaseTest {
 	public final By switch_screenflip = By
 			.xpath("//android.widget.TextView[@text=\"画面反転（据え置き）\"]/following-sibling::android.view.View");
 
-	// ==========================
 	// 🚀 SETUP
-	// ==========================
 	@BeforeClass
 	public void setUp() throws Exception {
-		UiAutomator2Options options = new UiAutomator2Options()
-				.setAutomationName("UiAutomator2")
-				.setPlatformName("Android")
-				.setDeviceName("Real Device")
-				.setUdid("0020202510018759")
-				.setAppPackage("com.pirago.pia")
-				.setAppActivity("com.pirago.pia.presentation.MainActivity")
-				.setAppWaitPackage("com.pirago.pia")
-				.setAppWaitActivity("com.pirago.pia.presentation.*")
-				.setNewCommandTimeout(Duration.ofSeconds(3600))
-				.setNoReset(true);
+		UiAutomator2Options options = new UiAutomator2Options().setAutomationName("UiAutomator2")
+				.setPlatformName("Android").setDeviceName("Real Device").setUdid("0020202510018759")
+				.setAppPackage("com.pirago.pia").setAppActivity("com.pirago.pia.presentation.MainActivity")
+				.setAppWaitPackage("com.pirago.pia").setAppWaitActivity("com.pirago.pia.presentation.*")
+				.setNewCommandTimeout(Duration.ofSeconds(3600)).setNoReset(true);
 
 		driver = new AndroidDriver(new URL("http://172.16.1.25:4723/wd/hub"), options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 		mywait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
-	// ==========================
 	// 🎯 COMMON UTILITIES
-	// ==========================
 	protected void clickElement(By locator) {
 		WebElement element = mywait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		element.click();
@@ -115,27 +97,28 @@ public class BaseTest {
 	}
 
 	protected void pause(int ms) {
-		try { Thread.sleep(ms); } catch (InterruptedException ignored) {}
+		try {
+			Thread.sleep(ms);
+		} catch (InterruptedException ignored) {
+		}
 	}
 
 	// ==========================
 	// 🧭 SCROLL HELPERS
 	// ==========================
 	protected void scrollDown(int maxSwipes) {
-		String ui = "new UiScrollable(new UiSelector().scrollable(true))"
-				+ ".setAsVerticalList().setMaxSearchSwipes(" + maxSwipes + ").scrollForward()";
+		String ui = "new UiScrollable(new UiSelector().scrollable(true))" + ".setAsVerticalList().setMaxSearchSwipes("
+				+ maxSwipes + ").scrollForward()";
 		driver.findElement(AppiumBy.androidUIAutomator(ui));
 	}
 
 	protected void scrollUp(int maxSwipes) {
-		String ui = "new UiScrollable(new UiSelector().scrollable(true))"
-				+ ".setAsVerticalList().setMaxSearchSwipes(" + maxSwipes + ").scrollBackward()";
+		String ui = "new UiScrollable(new UiSelector().scrollable(true))" + ".setAsVerticalList().setMaxSearchSwipes("
+				+ maxSwipes + ").scrollBackward()";
 		driver.findElement(AppiumBy.androidUIAutomator(ui));
 	}
 
-	// ==========================
 	// ✅ COMPLETE BUTTON HANDLER
-	// ==========================
 	public void checkComplete(By completeButton, By confirmButton, By okButton) {
 		try {
 			WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
@@ -166,9 +149,7 @@ public class BaseTest {
 		}
 	}
 
-	// ==========================
 	// 🔑 LOGIN & SETTING
-	// ==========================
 	public void setupSettingAndLogin() {
 		clickElement(hamburgerMenu);
 		clickElement(settingBtn);
@@ -194,9 +175,7 @@ public class BaseTest {
 		System.out.println("✅ Đã hoàn tất setup và login vào màn TOP xác thực.");
 	}
 
-	// ==========================
 	// 📦 IMPORT EVENT DATA
-	// ==========================
 	public void importSuccessData() {
 		clickElement(ip_importFooter);
 		clickElement(ip_eventData);
@@ -207,9 +186,7 @@ public class BaseTest {
 		System.out.println("✅ Đã hoàn tất Import thành công ở màn Import");
 	}
 
-	// ==========================
 	// 🔍 SWITCH STATUS CHECK
-	// ==========================
 	public void checkAllSwitchOnce() {
 		Map<By, String> switches = new LinkedHashMap<>();
 		switches.put(switch_limitedGate, "ゲート制限");
@@ -231,35 +208,49 @@ public class BaseTest {
 		System.out.println("====================================");
 	}
 
-	// ==========================
 	// 🧩 DEFAULT VALUE CHECK
-	// ==========================
 	public void verifyDefaultValue(By locator, String expectedValue, String fieldName) {
 		WebElement element = mywait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		String actualValue = element.getText();
 		Assert.assertEquals(actualValue, expectedValue,
 				"❌ Giá trị mặc định của [" + fieldName + "] không đúng. Thực tế: " + actualValue);
 	}
-	
-	// ==========================
+
 	// 🔍 FOOTER STATUS CHECK
-	// ==========================
-	
 	public void checkFooter(By locator, String switchName) {
-	    WebElement element = driver.findElement(locator);
+		WebElement element = driver.findElement(locator);
 
-	    String enabledAttr = element.getAttribute("enabled");
-	    String clickableAttr = element.getAttribute("clickable");
+		String enabledAttr = element.getAttribute("enabled");
+		String clickableAttr = element.getAttribute("clickable");
 
-	    boolean isActuallyEnabled = 
-	        ("true".equalsIgnoreCase(enabledAttr) && !"false".equalsIgnoreCase(clickableAttr));
+		boolean isActuallyEnabled = ("true".equalsIgnoreCase(enabledAttr) && !"false".equalsIgnoreCase(clickableAttr));
 
-	    if (isActuallyEnabled) {
-	        System.out.println("🔘 [" + switchName + "] đang ENABLE ✅");
-	    } else {
-	        System.out.println("🔘 [" + switchName + "] đang DISABLE ❌");
-	    }
+		if (isActuallyEnabled) {
+			System.out.println("🔘 [" + switchName + "] đang ENABLE ✅");
+		} else {
+			System.out.println("🔘 [" + switchName + "] đang DISABLE ❌");
+		}
 
-	    Assert.assertTrue(true, "Switch [" + switchName + "] trạng thái: " + (isActuallyEnabled ? "ENABLE" : "DISABLE"));
+		Assert.assertTrue(true,
+				"Switch [" + switchName + "] trạng thái: " + (isActuallyEnabled ? "ENABLE" : "DISABLE"));
 	}
+
+	// 🧩 CHECK MESSAGE DIALOGS
+	public void MessageDiadlogs(By dialogLocator, String expectedMessage) {
+		String actualMessage = driver.findElement(dialogLocator).getText();
+		Assert.assertEquals(actualMessage, expectedMessage, "Dialog hiển thị sai nội dung");
+	}
+	
+	// 🧩 CHECK TITLE
+	public void checkTitleText(By locator, String expectedText) {
+		WebElement element = driver.findElement(locator);
+		String actualText = element.getText();
+
+		if (actualText.equals(expectedText)) {
+			System.out.println("✅ Title [" + expectedText + "] hiển thị chính xác");
+		} else {
+			System.out.println("❌ Title [" + expectedText + "] sai. Thực tế: " + actualText);
+		}
+	}
+
 }
