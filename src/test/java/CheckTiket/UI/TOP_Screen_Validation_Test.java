@@ -1,4 +1,5 @@
 package CheckTiket.UI;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -14,7 +15,7 @@ public class TOP_Screen_Validation_Test extends BaseTest {
 	public void checkTitle() {
 		topValidation_Page.verifyAllTitlesDisplayed();
 	}
-	
+
 	@Test(priority = 2, description = "Kiểm tra trạng thái các footer của màn TOP")
 	public void checkStatusFooter() {
 		topValidation_Page.checkStatusFooter();

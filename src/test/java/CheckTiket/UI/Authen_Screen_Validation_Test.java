@@ -12,12 +12,7 @@ public class Authen_Screen_Validation_Test extends BaseTest {
 	}
 
 	@Test(priority = 1, description = "Display switchs")
-
 	public void checkDisplayswiths() {
-		authenValidationPage.setupSettingAndLogin();
-		authenValidationPage.importSuccessData();
-		authenValidationPage.checkDispalySwitchWithAuthenNormal();
-		authenValidationPage.checkDispalySwitchWithTicketCheck();
-		authenValidationPage.checkDispalySwitchWithAuthenUrgent();
+		authenValidationPage.checkAllTitle();
 	}
 }

@@ -2,7 +2,6 @@ package CheckTiket.UI;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 public class Setting_Screen_Function_Test extends BaseTest {
 
 	private Setting_Screen_Function_Page settingFunctionPage;

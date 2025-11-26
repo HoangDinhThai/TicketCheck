@@ -22,7 +22,30 @@ public class Authen_Screen_Validation_Page extends BaseTest {
 		Assert.assertEquals(actualValue, expectedValue,
 				"❌ Giá trị mặc định của [" + fieldName + "] không đúng. Thực tế: " + actualValue);
 	}
-	
+
+	// 🔍 ELEMENT TITLE
+	public final By titleAuth = By.xpath("(//android.widget.TextView[@text=\"認証\"])[1]");
+	public final By eventInfoAuth = By.xpath("//android.widget.TextView[@text=\"イベント情報\"]");
+	public final By eventNameAuth = By.xpath("//android.widget.TextView[@text=\"イベント名\"]");
+	public final By dateEventAuth = By.xpath("//android.widget.TextView[@text=\"開催日付\"]");
+	public final By settingAuth = By.xpath("//android.widget.TextView[@text=\"設定\"]");
+	public final By usemodeAuth = By.xpath("//android.widget.TextView[@text=\"利用形態\"]");
+	public final By gateAuth = By.xpath("//android.widget.TextView[@text=\"設置ゲート\"]");
+	public final By gatelimitAuth = By.xpath("//android.widget.TextView[@text=\"ゲート制限\"]");
+	public final By certificationAuth = By.xpath("(//android.widget.TextView[@text=\"認証\"])[2]");
+	public final By reentryAuth = By.xpath("//android.widget.TextView[@text=\"再入場\"]");
+	public final By timecontrolAuth = By.xpath("//android.widget.TextView[@text=\"入場開始時間制御\"]");
+	public final By readingAuth = By.xpath("//android.widget.TextView[@text=\"読取エリア表示\"]");
+	public final By screenflipAuth = By.xpath("//android.widget.TextView[@text=\"画面反転（据え置き）\"]");
+	public final By btnAuth = By.xpath("//android.widget.TextView[@text=\"読み取りモードにする\"]");
+	public final By recordAuth = By.xpath("//android.widget.TextView[@text=\"認証記録\"]");
+	public final By primarygateAuth = By.xpath("//android.widget.TextView[@text=\"1次ゲート\"]");
+	public final By successAuth = By.xpath("(//android.widget.TextView[@text=\"認証数\"])[1]");
+	public final By checkticketAuth = By.xpath("(//android.widget.TextView[@text=\"記録数\"])[1]");
+	public final By failAuth = By.xpath("//android.widget.TextView[@text=\"エラー数\"]");
+	public final By gatesecondAuth = By.xpath("//android.widget.TextView[@text=\"2段階認証\"]");
+	public final By ticketcheckAuth = By.xpath("//android.widget.TextView[@text=\"チケットチェック\"]");
+
 	// Element của màn Setting
 	public final By settingBtn = By.xpath("//android.widget.ScrollView/android.view.View[1]");
 	public final By dialogPassword = By.xpath("//android.widget.EditText");
@@ -35,7 +58,7 @@ public class Authen_Screen_Validation_Page extends BaseTest {
 
 	// Element để vào màn xác thực TOP
 	public final By auth_authFooter = By.xpath(
-			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[9]");
+			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]");
 	public final By auth_useAuthen = By.xpath("//android.widget.ScrollView/android.view.View[1]");
 	public final By auth_useTicketCheck = By.xpath("//android.widget.TextView[@text=\"チケットチェック\"]");
 	public final By auth_gate1 = By.xpath("//android.widget.ScrollView/android.view.View[2]");
@@ -45,12 +68,6 @@ public class Authen_Screen_Validation_Page extends BaseTest {
 	public final By footerTOP = By.xpath("//android.widget.TextView[@text=\"TOP\"]");
 
 	public void checkDispalySwitchWithAuthenNormal() {
-		clickElement(auth_authFooter);
-		pause(200);
-		clickElement(auth_gate1);
-		pause(200);
-		clickElement(auth_authGate);
-		pause(200);
 		scrollDown(1);
 		checkAllSwitchOnce();
 	}
@@ -68,17 +85,19 @@ public class Authen_Screen_Validation_Page extends BaseTest {
 		pause(200);
 		clickElement(ugrent);
 		pause(200);
+		scrollDown(1);
 		clickElement(ugrent_options);
 		pause(200);
 		clickElement(ugrent_OK);
 		pause(200);
-		scrollDown(1);
 		clickElement(oKBtn);
 		pause(200);
 		clickElement(okDone);
 		pause(200);
+		clickElement(auth_authFooter);
+		pause(200);
+		scrollDown(1);
 		checkAllSwitchOnce();
-		System.out.println("");
 	}
 
 	public void checkDispalySwitchWithTicketCheck() {
@@ -98,5 +117,33 @@ public class Authen_Screen_Validation_Page extends BaseTest {
 		pause(100);
 		clickElement(okDialogPassword);
 		pause(200);
+	}
+
+	public void checkAllTitle() {
+		clickElement(auth_authFooter);
+		pause(200);
+		checkTitleText(titleAuth, "認証");
+		checkTitleText(eventInfoAuth, "イベント情報");
+		checkTitleText(eventNameAuth, "イベント名  ");
+		checkTitleText(dateEventAuth, "開催日付 ");
+		checkTitleText(settingAuth, "設定");
+		checkTitleText(usemodeAuth, "利用形態");
+		checkTitleText(gateAuth, "設置ゲート");
+		scrollDown(1);
+		checkTitleText(gatelimitAuth, "ゲート制限");
+		checkTitleText(certificationAuth, "認証");
+		checkTitleText(reentryAuth, "再入場");
+		checkTitleText(timecontrolAuth, "入場開始時間制御");
+		checkTitleText(readingAuth, "読取エリア表示");
+		checkTitleText(screenflipAuth, "画面反転（据え置き）");
+		checkTitleText(btnAuth, "読み取りモードにする");
+		scrollDown(1);
+		checkTitleText(recordAuth, "認証記録");
+		checkTitleText(primarygateAuth, "1次ゲート");
+		checkTitleText(successAuth, "認証数");
+		checkTitleText(checkticketAuth, "記録数");
+		checkTitleText(failAuth, "エラー数");
+		checkTitleText(gatesecondAuth, "2段階認証");
+		checkTitleText(ticketcheckAuth, "チケットチェック");
 	}
 }

@@ -6,18 +6,23 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.qameta.allure.Attachment;
 
 public class BaseTest {
-
 	protected AndroidDriver driver;
 	protected WebDriverWait mywait;
 
@@ -45,8 +50,7 @@ public class BaseTest {
 
 	// 📦 IMPORT EVENT SCREEN
 	public final By ip_importFooter = By.xpath("//android.view.View[@content-desc='イベント取込']");
-	public final By ip_eventData = By.xpath(
-			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View[1]");
+	public final By ip_eventData = By.xpath("//android.widget.TextView[@text=\"Check Ticket\"]");
 	public final By ip_clickBtn = By.xpath(
 			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[6]/android.widget.Button");
 	public final By ip_okDialog = By.xpath("//android.widget.Button");
@@ -118,43 +122,88 @@ public class BaseTest {
 		driver.findElement(AppiumBy.androidUIAutomator(ui));
 	}
 
-	// ✅ COMPLETE BUTTON HANDLER
-	public void checkComplete(By completeButton, By confirmButton, By okButton) {
-		try {
-			WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
-			WebElement btn = shortWait.until(ExpectedConditions.elementToBeClickable(completeButton));
+//	// ✅ COMPLETE BUTTON HANDLER
+//	public void checkComplete(By completeButton, By confirmButton, By okButton) {
+//		try {
+//			WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+//			WebElement btn = shortWait.until(ExpectedConditions.elementToBeClickable(completeButton));
+//
+//			if (btn.isDisplayed() && btn.isEnabled()) {
+//				btn.click();
+//				System.out.println("👉 Click nút hoàn tất lần đầu vào app.");
+//
+//				clickIfVisible(confirmButton, "confirm");
+//				clickIfVisible(okButton, "OK");
+//			} else {
+//				System.out.println("⚡ Nút hoàn tất bị disable → Không cần xử lý.");
+//			}
+//		} catch (Exception e) {
+//			System.out.println("✅ Không tìm thấy nút hoàn tất → Không cần xử lý.");
+//		}
+//	}
+//
+//	private void clickIfVisible(By locator, String name) {
+//		try {
+//			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//			WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+//			element.click();
+//			System.out.printf("✅ Đã click nút %s trong dialog.%n", name);
+//		} catch (Exception e) {
+//			System.out.printf("⚠ Không tìm thấy nút %s trong dialog.%n", name);
+//		}
+//	}
+	
+	public void handleButtons() {
 
-			if (btn.isDisplayed() && btn.isEnabled()) {
-				btn.click();
-				System.out.println("👉 Click nút hoàn tất lần đầu vào app.");
+	    By chooseButton = By.xpath("//android.widget.Button");
+	    By onlineButton = By.xpath("//android.view.ViewGroup/android.view.View/android.view.View/android.view.View[2]/android.widget.Button");
+	    By okButton = By.xpath("//android.widget.Button");
 
-				clickIfVisible(confirmButton, "confirm");
-				clickIfVisible(okButton, "OK");
-			} else {
-				System.out.println("⚡ Nút hoàn tất bị disable → Không cần xử lý.");
-			}
-		} catch (Exception e) {
-			System.out.println("✅ Không tìm thấy nút hoàn tất → Không cần xử lý.");
-		}
+	    // 1️⃣ Check nút chooseButton đầu tiên
+	    try {
+	        WebElement choose = driver.findElement(chooseButton);
+
+	        if (!choose.isEnabled()) {
+	            System.out.println("🚫 chooseButton đang disable → stop flow, không xử lý thêm.");
+	            return;  // Dừng toàn bộ hàm
+	        }
+
+	        System.out.println("👉 chooseButton enabled → clicking...");
+	        choose.click();
+
+	    } catch (Exception e) {
+	        System.out.println("❌ Không tìm thấy chooseButton → stop luôn.");
+	        return;
+	    }
+
+	    // 2️⃣ Xử lý các nút còn lại (nếu có)
+	    clickIfEnabled(onlineButton);
+	    clickIfEnabled(okButton);
 	}
 
-	private void clickIfVisible(By locator, String name) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-			WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
-			element.click();
-			System.out.printf("✅ Đã click nút %s trong dialog.%n", name);
-		} catch (Exception e) {
-			System.out.printf("⚠ Không tìm thấy nút %s trong dialog.%n", name);
-		}
+	public void clickIfEnabled(By locator) {
+	    try {
+	        WebElement btn = driver.findElement(locator);
+
+	        if (btn.isEnabled()) {
+	            System.out.println("👉 Button enabled → clicking...");
+	            btn.click();
+	        } else {
+	            System.out.println("🚫 Button disabled → skip");
+	        }
+
+	    } catch (Exception e) {
+	        System.out.println("❌ Button không tồn tại, skip luôn.");
+	    }
 	}
+
 
 	// 🔑 LOGIN & SETTING
 	public void setupSettingAndLogin() {
 		clickElement(hamburgerMenu);
 		clickElement(settingBtn);
 
-		inputElement(hometeamID, "VC");
+		inputElement(hometeamID, "SU");
 		inputElement(nameDevice, "Ticket");
 		inputElement(doamin, "pia.pirago.work");
 
@@ -166,11 +215,11 @@ public class BaseTest {
 		scrollDown(1);
 		clickElement(oKBtn);
 
-		inputElement(passwordInput, "123456");
+		inputElement(passwordInput, "hawksuat");
 		clickElement(okPassword);
 		pause(2000);
 		clickElement(okDone);
-		pause(2000);
+		pause(200);
 
 		System.out.println("✅ Đã hoàn tất setup và login vào màn TOP xác thực.");
 	}
@@ -178,11 +227,12 @@ public class BaseTest {
 	// 📦 IMPORT EVENT DATA
 	public void importSuccessData() {
 		clickElement(ip_importFooter);
+		scrollDown(1);
 		clickElement(ip_eventData);
 		clickElement(ip_clickBtn);
 		pause(8000);
 		clickElement(ip_okDialog);
-
+		pause(200);
 		System.out.println("✅ Đã hoàn tất Import thành công ở màn Import");
 	}
 
@@ -240,7 +290,7 @@ public class BaseTest {
 		String actualMessage = driver.findElement(dialogLocator).getText();
 		Assert.assertEquals(actualMessage, expectedMessage, "Dialog hiển thị sai nội dung");
 	}
-	
+
 	// 🧩 CHECK TITLE
 	public void checkTitleText(By locator, String expectedText) {
 		WebElement element = driver.findElement(locator);
@@ -253,4 +303,10 @@ public class BaseTest {
 		}
 	}
 
+//	@AfterClass
+//	public void teardown() {
+//		if (driver != null) {
+//			driver.quit();
+//		}
+//	}
 }

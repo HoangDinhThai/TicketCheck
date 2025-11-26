@@ -11,23 +11,35 @@ public class Maintainance_Screen_Validation_Test extends BaseTest {
 		maintainancePage = new Maintainance_Screen_Validation_Page(driver);
 	}
 
-	@Test(priority = 1, description = "Kiểm tra các giá trị default khi vào màn hình")
+	@Test(priority = 1, description = "Kiểm tra tất cả title trên màn hình")
+	public void checkAllTilte() {
+		maintainancePage.checkAllTitle();
+	}
+		
+	@Test(priority = 2, description = "Kiểm tra các giá trị default khi vào màn hình")
 	public void checkDefault() {
-		maintainancePage.checkDefault();
+		maintainancePage.checkDefaultValue();
 	}
 
-	@Test(priority = 2, description = "Cài đặt thiếu dung lượng")
+	@Test(priority = 3, description = "Cài đặt thiếu dung lượng")
 	public void checkMB() {
 		maintainancePage.checkMBMessage();
 	}
 
-	@Test(priority = 3, description = "Cài đặt authen")
+	@Test(priority = 4, description = "Cài đặt authen")
 	public void checkAuthen() {
 		maintainancePage.checkAuthenMessage();
 	}
 
-	@Test(priority = 4, description = "Kiểm tra bắt buộc")
+	@Test(priority = 5, description = "Kiểm tra bắt buộc")
 	public void checkRequired() {
 		maintainancePage.checkRequired();
 	}
+	
+	@Test(priority = 6, description = "Cài đặt thành công")
+	public void settingSuccess() {
+		maintainancePage.settingSuccess();
+	}
+	
+	
 }

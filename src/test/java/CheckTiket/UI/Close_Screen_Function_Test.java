@@ -11,8 +11,7 @@ public class Close_Screen_Function_Test extends BaseTest {
 	}
 
 	@Test(priority = 1, description = "Thực hiện quét vé")
-	public void checkSuccessBefore () {
-		scrollDown(1);
-		closeFunctionPage.checkTicketSuccess();
+	public void closeSuccess () {
+		closeFunctionPage.closeSuccess();
 	}
 }

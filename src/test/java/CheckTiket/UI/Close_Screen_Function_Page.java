@@ -12,34 +12,27 @@ public class Close_Screen_Function_Page extends BaseTest {
 		this.driver = (AndroidDriver) driver;
 		this.mywait = new org.openqa.selenium.support.ui.WebDriverWait(driver, Duration.ofSeconds(10));
 	}
-
-	// Element closee
-
-	// Element màn xác thực TOP
-	public final By auth_authFooter = By.xpath(
-			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[9]");
-	public final By auth_gate1 = By.xpath("//android.widget.ScrollView/android.view.View[2]");
-	public final By auth_authGate = By.xpath("//android.widget.ScrollView/android.view.View[2]");
-	public final By auth_authBtn = By.xpath("//android.widget.ScrollView/android.view.View[7]/android.widget.Button");
-	public final By auth_inputPassword = By.xpath("//android.widget.EditText");
-	public final By auth_okPassword = By.xpath("//android.widget.Button");
-
-	public void checkTicketSuccess() {
-		setupSettingAndLogin();
-		importSuccessData();
+	
+	// 🔍 ELEMENT HAMBURGER
+	public final By hamburgerIcon = By.xpath("//android.view.View[@content-desc=\"More options\"]");
+	public final By hamburgerClose = By.xpath("//android.widget.ScrollView/android.view.View[3]");
+	
+	// 🔍 ELEMENT CLOSE
+	public final By titleClose = By.xpath("(//android.widget.TextView[@text=\"アプリ終了\"])[1]");
+	public final By contentClose = By.xpath("//android.widget.TextView[@text=\"アプリを終了しても良いですか？\"]");
+	public final By exitClose = By.xpath("//android.widget.Button");
+	public final By closeClose = By.xpath("//android.widget.TextView[@text=\"キャンセル\"]");
+	
+	public void closeSuccess() {
+		clickElement(hamburgerIcon);
 		pause(200);
-		clickElement(auth_authFooter);
+		clickElement(hamburgerClose);
 		pause(200);
-		clickElement(auth_gate1);
+		checkTitleText(titleClose, "アプリ終了");
 		pause(200);
-		clickElement(auth_authGate);
+		checkTitleText(contentClose, "アプリを終了しても良いですか？");
 		pause(200);
-		scrollDown(1);
-		clickElement(auth_authBtn);
-		pause(200);
-		inputElement(auth_inputPassword, "jl");
-		pause(200);
-		clickElement(auth_okPassword);
+		clickElement(exitClose);
 		pause(200);
 	}
 }

@@ -2,7 +2,6 @@ package CheckTiket.UI;
 
 import java.time.Duration;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -17,7 +16,6 @@ public class TOP_Screen_Validation_Page extends BaseTest {
 	public final By footerImport = By.xpath("//android.widget.TextView[@text=\"イベント取込\"]");
 	public final By footerAuthen = By.xpath("//android.widget.TextView[@text=\"認証\"]");
 
-	// 🔍 ELEMENT TITLE
 	// 🔍 ELEMENT TITLE
 	public final By eventInfoTitle = By.xpath("//android.widget.TextView[@text=\"イベント情報\"]");
 	public final By topTitle = By.xpath("(//android.widget.TextView[@text=\"TOP\"])[1]");

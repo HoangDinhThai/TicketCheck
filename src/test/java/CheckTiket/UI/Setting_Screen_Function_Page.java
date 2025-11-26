@@ -107,7 +107,7 @@ public class Setting_Screen_Function_Page extends BaseTest {
 	/** Case 2: Đăng nhập thất bại với Domain không hợp lệ */
 	public void loginFailWithInvalidDomain() {
 		scrollUp(1);
-		inputElement(homeTeamIDInput, "VC");
+		inputElement(homeTeamIDInput, "SU");
 		inputElement(domainInput, "pia.pirago.work1");
 		scrollDown(1);
 		clickElement(okBtn);
