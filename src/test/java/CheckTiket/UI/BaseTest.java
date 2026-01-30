@@ -74,8 +74,8 @@ public class BaseTest {
 	public void setUp() throws Exception {
 		UiAutomator2Options options = new UiAutomator2Options().setAutomationName("UiAutomator2")
 				.setPlatformName("Android").setDeviceName("Real Device").setUdid("0020202510018759")
-				.setAppPackage("com.pirago.pia").setAppActivity("com.pirago.pia.presentation.MainActivity")
-				.setAppWaitPackage("com.pirago.pia").setAppWaitActivity("com.pirago.pia.presentation.*")
+				.setAppPackage("com.meet.pia").setAppActivity("com.meet.pia.presentation.MainActivity")
+				.setAppWaitPackage("com.meet.pia").setAppWaitActivity("com.meet.pia.presentation.*")
 				.setNewCommandTimeout(Duration.ofSeconds(3600)).setNoReset(true);
 
 		driver = new AndroidDriver(new URL("http://172.16.1.25:4723/wd/hub"), options);
@@ -116,9 +116,9 @@ public class BaseTest {
 		driver.findElement(AppiumBy.androidUIAutomator(ui));
 	}
 
-	protected void scrollUp(int maxSwipes) {
+	protected void scrollUp(int d) {
 		String ui = "new UiScrollable(new UiSelector().scrollable(true))" + ".setAsVerticalList().setMaxSearchSwipes("
-				+ maxSwipes + ").scrollBackward()";
+				+ d + ").scrollBackward()";
 		driver.findElement(AppiumBy.androidUIAutomator(ui));
 	}
 

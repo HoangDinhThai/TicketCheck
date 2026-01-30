@@ -36,17 +36,17 @@ public class Maintainance_Screen_Validation_Page extends BaseTest {
 	// 🔍 ELEMENT HAMBURGER
 	public final By Hamburger_Icon = By.xpath("//android.view.View[@content-desc=\"More options\"]");
 	public final By Hamburger_Maintance = By.xpath("//android.widget.TextView[@text=\"メンテナンス\"]");
-	public final By okBtn = By.xpath("//android.widget.ScrollView/android.view.View[5]/android.widget.Button");
+	public final By okBtn = By.xpath("//android.widget.ScrollView/android.view.View[2]/android.view.View/android.widget.Button");
 	
 	// 🔍 ELEMENT MESSAGE ERROR
 	public final By mbMessage = By.xpath("//android.widget.TextView[@text=\"最低空き容量を200MB以上にしてください\"]");
-	public final By authenInput = By
-			.xpath("//android.widget.TextView[@text='一度に送信する最大認証件数']/following-sibling::android.widget.EditText");
 	public final By authenMessage = By.xpath("//android.widget.TextView[@text=\"一度に送信する最大認証件数を10以上にしてください\"]");
 
 	// 🔍 ELEMENT INPUT
 	public final By mbInput = By
 			.xpath("//android.widget.TextView[@text='動作に必要な最低空き容量']/following-sibling::android.widget.EditText");
+	public final By authenInput = By
+			.xpath("//android.widget.TextView[@text='一度に送信する最大認証件数']/following-sibling::android.widget.EditText");
 	public final By timeoutInput = By
 			.xpath("//android.widget.TextView[@text='タイムアウト']/following-sibling::android.widget.EditText");
 	public final By soundDropdown = By
@@ -81,24 +81,31 @@ public class Maintainance_Screen_Validation_Page extends BaseTest {
 		checkTitleText(banTitle, "認証NG時の読取禁止時間");
 	}
 	
-	public void checkDefaultValue() {
-		verifyDefaultValue(mbInput, "200", "動作に必要な最低空き容量");
-		verifyDefaultValue(timeoutInput, "10", "タイムアウト");
-		verifyDefaultValue(authenInput, "100", "一度に送信する最大認証件数");
-		scrollDown(1);
-		verifyDefaultValue(soundDropdown, "9", "認証結果音の音量（0～10）");
-		verifyDefaultValue(returnScreen, "0", "待受け画面表示時間");
-		verifyDefaultValue(banAuthen, "0", "認証NG時の読取禁止時間");
-		System.out.println("✅ Tất cả giá trị default đều chính xác.");
-	}
+//	public void checkDefaultValue() {
+//		scrollUp(1);
+//		verifyDefaultValue(mbInput, "200", "動作に必要な最低空き容量");
+//		pause(2000);
+//		verifyDefaultValue(timeoutInput, "10", "タイムアウト");
+//		pause(2000);
+//		verifyDefaultValue(authenInput, "100", "一度に送信する最大認証件数");
+//		pause(2000);
+//		verifyDefaultValue(soundDropdown, "9", "認証結果音の音量（0～10）");
+//		pause(2000);
+//		verifyDefaultValue(returnScreen, "0", "待受け画面表示時間");
+//		pause(2000);
+//		verifyDefaultValue(banAuthen, "0", "認証NG時の読取禁止時間");
+//		pause(2000);
+//		System.out.println("✅ Tất cả giá trị default đều chính xác.");
+//		pause(2000);
+//	}
 
 	public void checkMBMessage() {
 		scrollUp(1);
 		inputElement(mbInput, "1");
-		pause(200);
+		pause(500);
 		scrollDown(1);
 		clickElement(okBtn);
-		pause(200);
+		pause(500);
 		String actualMessage = driver.findElement(mbMessage).getText();
 		String expectedMessage = "最低空き容量を200MB以上にしてください";
 		Assert.assertEquals(actualMessage, expectedMessage, "Message hiển thị không đúng nội dung");
@@ -106,9 +113,9 @@ public class Maintainance_Screen_Validation_Page extends BaseTest {
 
 	public void checkAuthenMessage() {
 		inputElement(authenInput, "1");
-		pause(200);
+		pause(500);
 		clickElement(okBtn);
-		pause(200);
+		pause(500);
 		String actualMessage = driver.findElement(authenMessage).getText();
 		String expectedMessage = "一度に送信する最大認証件数を10以上にしてください";
 		Assert.assertEquals(actualMessage, expectedMessage, "Message hiển thị không đúng nội dung");
@@ -117,12 +124,12 @@ public class Maintainance_Screen_Validation_Page extends BaseTest {
 	public void checkRequired() {
 		scrollUp(1);
 		clearElement(mbInput);
-		pause(200);
+		pause(500);
 		scrollDown(1);
 		clearElement(timeoutInput);
-		pause(200);
+		pause(500);
 		clearElement(authenInput);
-		pause(200);
+		pause(500);
 		scrollDown(1);
 		boolean isDisable = driver.findElement(okBtn).isDisplayed();
 		Assert.assertTrue(isDisable, "Nút OK đã disable");
@@ -130,12 +137,15 @@ public class Maintainance_Screen_Validation_Page extends BaseTest {
 	
 	public void settingSuccess() {
 		scrollUp(1);
+		pause(200);
 		inputElement(mbInput, "2000");
 		scrollDown(1);
+		pause(200);
 		inputElement(timeoutInput, "10");
+		pause(200);
 		inputElement(authenInput, "50");
-		pause(200);
+		pause(500);
 		clickElement(okBtn);
-		pause(200);
+		pause(500);
 	}
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test function Setting(failed)">
+    <classes>
+      <class name="CheckTiket.UI.Setting_Screen_Function_Test">
+        <methods>
+          <include name="loginFailWithEmptyPassword"/>
+          <include name="setUp"/>
+          <include name="setupPage"/>
+          <include name="loginSuccessChangeBoth"/>
+          <include name="loginSuccesss"/>
+          <include name="loginSuccessChangeDomain"/>
+          <include name="loginSuccessChangeHomeTeamID"/>
+        </methods>
+      </class> <!-- CheckTiket.UI.Setting_Screen_Function_Test -->
+    </classes>
+  </test> <!-- Test function Setting(failed) -->
+</suite> <!-- Failed suite [Suite] -->

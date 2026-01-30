@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="CheckTiket.UI.Authen_Screen_Validation_Test">
+      <class name="CheckTiket.UI.Maintainance_Screen_Validation_Test">
         <methods>
           <include name="setUp"/>
+          <include name="checkDefault"/>
           <include name="setupPage"/>
-          <include name="checkDisplayswiths"/>
+          <include name="checkMB"/>
         </methods>
-      </class> <!-- CheckTiket.UI.Authen_Screen_Validation_Test -->
+      </class> <!-- CheckTiket.UI.Maintainance_Screen_Validation_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

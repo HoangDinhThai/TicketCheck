@@ -1,75 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-26T15:34:32 GMT+07:00" name="Default suite" finished-at="2025-11-26T15:35:10 GMT+07:00" duration-ms="38266">
+  <suite started-at="2026-01-30T11:06:02 GMT+07:00" name="Default suite" finished-at="2026-01-30T11:06:57 GMT+07:00" duration-ms="55487">
     <groups>
     </groups>
-    <test started-at="2025-11-26T15:34:32 GMT+07:00" name="Default test" finished-at="2025-11-26T15:35:10 GMT+07:00" duration-ms="38266">
-      <class name="CheckTiket.UI.Authen_Screen_Validation_Test">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:CheckTiket.UI.Authen_Screen_Validation_Test@6d026701]" started-at="2025-11-26T15:34:32 GMT+07:00" name="setUp" finished-at="2025-11-26T15:34:42 GMT+07:00" duration-ms="10093" status="PASS">
+    <test started-at="2026-01-30T11:06:02 GMT+07:00" name="Default test" finished-at="2026-01-30T11:06:57 GMT+07:00" duration-ms="55487">
+      <class name="CheckTiket.UI.Maintainance_Screen_Validation_Test">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:CheckTiket.UI.Maintainance_Screen_Validation_Test@4b7dc788]" started-at="2026-01-30T11:06:02 GMT+07:00" name="setUp" finished-at="2026-01-30T11:06:14 GMT+07:00" duration-ms="12232" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="setupPage()[pri:0, instance:CheckTiket.UI.Authen_Screen_Validation_Test@6d026701]" started-at="2025-11-26T15:34:42 GMT+07:00" name="setupPage" finished-at="2025-11-26T15:34:42 GMT+07:00" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="setupPage()[pri:0, instance:CheckTiket.UI.Maintainance_Screen_Validation_Test@4b7dc788]" started-at="2026-01-30T11:06:14 GMT+07:00" name="setupPage" finished-at="2026-01-30T11:06:14 GMT+07:00" duration-ms="14" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupPage -->
-        <test-method signature="checkDisplayswiths()[pri:1, instance:CheckTiket.UI.Authen_Screen_Validation_Test@6d026701]" started-at="2025-11-26T15:34:42 GMT+07:00" name="checkDisplayswiths" description="Display switchs" finished-at="2025-11-26T15:35:10 GMT+07:00" duration-ms="28074" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@text="チケットチェック"] (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: '4.27.0', revision: 'd6e718d'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appium:appActivity: com.pirago.pia.presentation..., appium:appPackage: com.pirago.pia, appium:appWaitActivity: com.pirago.pia.presentation.*, appium:appWaitPackage: com.pirago.pia, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.pirago.pia.presentation..., appPackage: com.pirago.pia, appWaitActivity: com.pirago.pia.presentation.*, appWaitPackage: com.pirago.pia, automationName: UiAutomator2, deviceName: Real Device, newCommandTimeout: 3600, noReset: true, platformName: ANDROID, udid: 0020202510018759}, appium:deviceApiLevel: 31, appium:deviceManufacturer: Android, appium:deviceModel: Hand-held_Terminal, appium:deviceName: 0020202510018759, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1440, appium:deviceUDID: 0020202510018759, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 3600, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 12, appium:statBarHeight: 48, appium:takesScreenshot: true, appium:udid: 0020202510018759, appium:viewportRect: {height: 1392, left: 0, top: 48, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: 0aef6f80-a674-462e-9449-de1f08bbb372]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.TextView[@text="チケットチェック"] (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: '4.27.0', revision: 'd6e718d'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appium:appActivity: com.pirago.pia.presentation..., appium:appPackage: com.pirago.pia, appium:appWaitActivity: com.pirago.pia.presentation.*, appium:appWaitPackage: com.pirago.pia, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.pirago.pia.presentation..., appPackage: com.pirago.pia, appWaitActivity: com.pirago.pia.presentation.*, appWaitPackage: com.pirago.pia, automationName: UiAutomator2, deviceName: Real Device, newCommandTimeout: 3600, noReset: true, platformName: ANDROID, udid: 0020202510018759}, appium:deviceApiLevel: 31, appium:deviceManufacturer: Android, appium:deviceModel: Hand-held_Terminal, appium:deviceName: 0020202510018759, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1440, appium:deviceUDID: 0020202510018759, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 3600, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 12, appium:statBarHeight: 48, appium:takesScreenshot: true, appium:udid: 0020202510018759, appium:viewportRect: {height: 1392, left: 0, top: 48, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: 0aef6f80-a674-462e-9449-de1f08bbb372
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at CheckTiket.UI.BaseTest.clickElement(BaseTest.java:88)
-at CheckTiket.UI.Authen_Screen_Validation_Page.checkDispalySwitchWithTicketCheck(Authen_Screen_Validation_Page.java:107)
-at CheckTiket.UI.Authen_Screen_Validation_Test.checkDisplayswiths(Authen_Screen_Validation_Test.java:19)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        <test-method signature="checkAllTilte()[pri:1, instance:CheckTiket.UI.Maintainance_Screen_Validation_Test@4b7dc788]" started-at="2026-01-30T11:06:14 GMT+07:00" name="checkAllTilte" description="Kiểm tra tất cả title trên màn hình" finished-at="2026-01-30T11:06:28 GMT+07:00" duration-ms="13906" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkDisplayswiths -->
-      </class> <!-- CheckTiket.UI.Authen_Screen_Validation_Test -->
+        </test-method> <!-- checkAllTilte -->
+        <test-method signature="checkMB()[pri:3, instance:CheckTiket.UI.Maintainance_Screen_Validation_Test@4b7dc788]" started-at="2026-01-30T11:06:28 GMT+07:00" name="checkMB" description="Cài đặt thiếu dung lượng" finished-at="2026-01-30T11:06:34 GMT+07:00" duration-ms="6358" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkMB -->
+        <test-method signature="checkAuthen()[pri:4, instance:CheckTiket.UI.Maintainance_Screen_Validation_Test@4b7dc788]" started-at="2026-01-30T11:06:34 GMT+07:00" name="checkAuthen" description="Cài đặt authen" finished-at="2026-01-30T11:06:37 GMT+07:00" duration-ms="3015" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkAuthen -->
+        <test-method signature="checkRequired()[pri:5, instance:CheckTiket.UI.Maintainance_Screen_Validation_Test@4b7dc788]" started-at="2026-01-30T11:06:37 GMT+07:00" name="checkRequired" description="Kiểm tra bắt buộc" finished-at="2026-01-30T11:06:47 GMT+07:00" duration-ms="9989" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkRequired -->
+        <test-method signature="settingSuccess()[pri:6, instance:CheckTiket.UI.Maintainance_Screen_Validation_Test@4b7dc788]" started-at="2026-01-30T11:06:47 GMT+07:00" name="settingSuccess" description="Cài đặt thành công" finished-at="2026-01-30T11:06:57 GMT+07:00" duration-ms="9838" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- settingSuccess -->
+      </class> <!-- CheckTiket.UI.Maintainance_Screen_Validation_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

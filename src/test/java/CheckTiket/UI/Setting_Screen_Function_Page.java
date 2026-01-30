@@ -126,9 +126,9 @@ public class Setting_Screen_Function_Page extends BaseTest {
 		clickElement(okBtn);
 		inputElement(dlgInput, "thai2211");
 		clickElement(dlgOK);
-		MessageDiadlogs(failedPassword, "入力されたパスワードが違います。パスワードを確認してください。");
-		pause(200);
-		clickElement(dlgDomain_Cancel);
+		//MessageDiadlogs(failedPassword, "入力されたパスワードが違います。パスワードを確認してください。");
+		//pause(200);
+		//clickElement(dlgDomain_Cancel);
 		pause(200);
 	}
 

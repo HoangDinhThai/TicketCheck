@@ -58,7 +58,7 @@ public class Authen_Screen_Validation_Page extends BaseTest {
 
 	// Element để vào màn xác thực TOP
 	public final By auth_authFooter = By.xpath(
-			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]");
+			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]/android.view.View[3]");
 	public final By auth_useAuthen = By.xpath("//android.widget.ScrollView/android.view.View[1]");
 	public final By auth_useTicketCheck = By.xpath("//android.widget.TextView[@text=\"チケットチェック\"]");
 	public final By auth_gate1 = By.xpath("//android.widget.ScrollView/android.view.View[2]");

@@ -32,7 +32,7 @@ public class Setting_Screen_Validation_Page extends BaseTest {
 	public final By Title_EmergencyAuthentication = By.xpath("//android.widget.TextView[@text=\"緊急認証時の表示\"]");
 	public final By Title_ReceiptOutput = By.xpath("//android.widget.TextView[@text=\"レシート出力\"]");
 	public final By Title_TestPrint = By.xpath("//android.widget.TextView[@text=\"テストプリント\"]");
-	public final By Title_ServerAuthentication = By.xpath("//android.widget.TextView[@text=\"管理サーバ認証\"]");
+	public final By Title_ServerAuthentication = By.xpath("//android.widget.TextView[@text=\"管理サーバー認証\"]");
 	
 	// 🔍 ELEMENT PLACEHOLDER
 	public final By Placeholder_HomeTeamID = By.xpath("//android.widget.TextView[@text=\"ホームチームIDを入力\"]");

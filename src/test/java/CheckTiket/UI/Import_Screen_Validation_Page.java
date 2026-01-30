@@ -18,7 +18,8 @@ public class Import_Screen_Validation_Page extends BaseTest {
 	public final By refreshBtnTitle = By.xpath("//android.widget.TextView[@text=\"更新\"]");
 	public final By tabOnlineTitle = By.xpath("//android.widget.TextView[@text=\"オンライン\"]");
 	public final By tabOfflineTitle = By.xpath("(//android.widget.TextView[@text=\"オフライン\"])");
-	public final By importBtnTitle = By.xpath("//android.widget.Button");
+	public final By importBtnTitle = By.xpath(
+			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[4]");
 	public final By dataAcquisitionTitle = By.xpath("//android.widget.TextView[@text=\"データ取得\"]");
 	public final By dataLoadingTitle = By.xpath("//android.widget.TextView[@text=\"データ読込\"]");
 	public final By elapsedTimeTitle = By.xpath("//android.widget.TextView[@text=\"経過時間\"]");
@@ -26,10 +27,10 @@ public class Import_Screen_Validation_Page extends BaseTest {
 
 	// 🔍 ELEMENT KHÁC
 	public final By importFooter = By.xpath(
-			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[3]");
+			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]/android.view.View[2]");
 	public final By ip_eventData = By.xpath("//android.widget.TextView[@text=\"Check Ticket\"]");
 	public final By ip_clickBtn = By.xpath(
-			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[6]/android.widget.Button");
+			"//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[4]");
 	public final By ip_OkBtn = By.xpath("//android.widget.Button");
 
 	public void checkAllTile() {
@@ -41,15 +42,14 @@ public class Import_Screen_Validation_Page extends BaseTest {
 		checkTitleText(tabOnlineTitle, "オンライン");
 		checkTitleText(tabOfflineTitle, "オフライン");
 		checkTitleText(importBtnTitle, "このイベントを取込む");
-		scrollDown(1);
 		clickElement(ip_eventData);
 		pause(200);
 		clickElement(ip_clickBtn);
 		checkTitleText(dataAcquisitionTitle, "データ取得");
 		checkTitleText(dataLoadingTitle, "データ読込");
-		//checkTitleText(elapsedTimeTitle, "経過時間");
+		// checkTitleText(elapsedTimeTitle, "経過時間");
 		checkTitleText(cancelBtnTitle, "キャンセル");
-		pause(8000);
+		pause(45000);
 		clickElement(ip_OkBtn);
 	}
 }
